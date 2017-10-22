@@ -1,12 +1,11 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ahmed LALA
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content padding>
+  <div class="smsm-bg"></div>
+  <br>
+  <br>
+  <br>
+  <br>
   <ion-row>
     <ion-col  offset-6>
       <br>
@@ -21,19 +20,13 @@
   <br>
   <br>
   <ion-row>
-    <ion-col offset-2>
-      <button ion-button icon-only outline round large color="danger" (click)="subCustomer()">
-        <ion-icon name="remove"></ion-icon>
-      </button>
-    </ion-col>
-    <ion-col offset-2>
-      <button ion-button icon-only outline round large color="secondary" (click)="addCustomer()">
-        <ion-icon name="add"></ion-icon>
-      </button>
+    <ion-col offset-4>
+      <!-- <h1 class="working" [class]="working">{{working}}</h1> -->
+      <ion-badge class="working" [color]="workingColor">{{working}}</ion-badge>
     </ion-col>
   </ion-row>
 </ion-content>
 
 <ion-footer>
-    <button ion-button full color="{{workingColor}}" (click)="updateServerStatus()">{{working}}</button>
+  <button ion-button color="secondary" full (click)="reload()">Refresh</button>
 </ion-footer>

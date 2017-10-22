@@ -25,45 +25,6 @@ export class HomePage {
     });
   }
 
-  updateServerStatus(){
-    this.be.updateServerStatus((open)=>{
-      this.open = open;
-      if(open){
-        this.working = "Working";
-        this.customers = 0;
-        this.workingColor = "secondary"
-      }else{
-        this.working = "Closed";
-        this.customers = 0;
-        this.workingColor = "danger";
-      }
-    });
-  }
-
-  subCustomer(){
-    if(this.open && this.customers>0){
-      this.be.updateCustomer(-1,(success)=>{
-        if(success){
-          this.customers-=1;
-        }else{
-          this.presentToast("Error occured");
-        }
-      })
-    }
-  }
-
-  addCustomer(){
-    if(this.open){
-      this.be.updateCustomer(1,(success)=>{
-        if(success){
-          this.customers+=1;
-        }else{
-          this.presentToast("Error occured");
-        }
-      })
-    }
-  }
-
   presentToast(msg) {
     const toast = this.toastCtrl.create({
       message: msg,
@@ -73,4 +34,7 @@ export class HomePage {
     toast.present();
   }
 
+  reload(){
+    this.navCtrl.setRoot(this.navCtrl.getActive().component);
+  }
 }
